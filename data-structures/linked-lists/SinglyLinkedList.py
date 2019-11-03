@@ -28,7 +28,7 @@ class SinglyLinkedList:
 
     def insert(self, data, position):
         # Check for invalid position values
-        if position < 1 or type(position) != int:
+        if not isinstance(position, int) or position < 1:
             raise ValueError('The position needs to be an integer greater than 0')
         # If position is 1 then insert at the head
         if position == 1:
