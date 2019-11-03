@@ -1,24 +1,54 @@
 class Node:
+    """
+    The Node for the Singly Linked List
+    """
+
     def __init__(self, data):
+        """
+        The Node constructor
+
+        :param data: The node data
+        """
         self.data = data
         self.next = None
 
 
 class SinglyLinkedList:
+    """
+    Singly Linked List
+    """
+
     def __init__(self):
+        """
+        The Singly Linked List constructor
+        """
         self.head = None
         self.size = 0
 
-    def insert_first(self, data):
+    def insert_first(self, data):  # O(1)
+        """
+        Insert a node at the beginning of the list and increment the list size
+
+        :param data: The node data
+        :return:
+        """
         node = Node(data)
         node.next = self.head
         self.head = node
         self.size += 1
 
-    def insert_last(self, data):
+    def insert_last(self, data):  # O(n)
+        """
+        Insert a node a the end of the list and increment the list size
+
+        :param data: The node data
+        :return:
+        """
+        # Check to see if the list is empty
         if self.head is None:
             self.head = Node(data)
             self.size += 1
+        # If the list is not empty then insert a node at the end
         else:
             current = self.head
             while current.next is not None:
@@ -26,7 +56,14 @@ class SinglyLinkedList:
             current.next = Node(data)
             self.size += 1
 
-    def insert(self, data, position):
+    def insert(self, data, position):  # O(n)
+        """
+        Insert a node at a specific position in the list and increment the list size
+
+        :param data: The node data
+        :param position: The position (index) of the list to insert the new node
+        :return:
+        """
         # Check for invalid position values
         if not isinstance(position, int) or position < 1:
             raise ValueError('The position needs to be an integer greater than 0')
