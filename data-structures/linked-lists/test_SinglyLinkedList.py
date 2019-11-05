@@ -78,6 +78,27 @@ class TestSinglyLinkedList(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.ll.insert('a', 2.5)
 
+    def test_get_first(self):
+        self.assertEqual(self.ll.get_first(), None)
+        self.ll.insert_first('a')
+        self.assertEqual(self.ll.get_first(), 'a')
+        self.ll.insert_first('b')
+        self.assertEqual(self.ll.get_first(), 'b')
+        self.ll.insert_last('c')
+        self.assertEqual(self.ll.get_first(), 'b')
+
+    def test_get_last(self):
+        self.assertEqual(self.ll.get_last(), None)
+        self.ll.insert_first('a')
+        self.assertEqual(self.ll.get_last(), 'a')
+        self.ll.insert_first('b')
+        self.assertEqual(self.ll.get_last(), 'a')
+        self.ll.insert_last('c')
+        self.assertEqual(self.ll.get_last(), 'c')
+
+    def test_get_position(self):
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()

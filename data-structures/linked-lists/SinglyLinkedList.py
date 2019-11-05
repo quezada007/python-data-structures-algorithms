@@ -87,13 +87,29 @@ class SinglyLinkedList:
                 current.next = node
                 self.size += 1
 
-    def get_first(self):
-        pass
+    def get_first(self):  # O(1)
+        """
+        Get the first node of the list
 
-    def get_last(self):
-        pass
+        :return: The data of the first node
+        """
+        return self.head.data if self.head is not None else None
 
-    def get_position(self, position):
+    def get_last(self):  # O(n)
+        """
+        Get the last node of the list
+
+        :return: The data of the last node
+        """
+        if self.head is None:
+            return None
+        else:
+            current = self.head
+            while current.next is not None:
+                current = current.next
+            return current.data
+
+    def get_position(self, position):  # O(n)
         pass
 
     def remove_first(self):
