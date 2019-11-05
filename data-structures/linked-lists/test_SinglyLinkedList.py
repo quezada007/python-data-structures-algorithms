@@ -97,7 +97,32 @@ class TestSinglyLinkedList(unittest.TestCase):
         self.assertEqual(self.ll.get_last(), 'c')
 
     def test_get_position(self):
-        pass
+        self.assertEqual(self.ll.get_position(1), None)
+        self.ll.insert_first('a')
+        self.assertEqual(self.ll.get_position(1), 'a')
+        self.ll.insert_first('b')
+        self.assertEqual(self.ll.get_position(1), 'b')
+        self.assertEqual(self.ll.get_position(2), 'a')
+        self.ll.insert_first('c')
+        self.assertEqual(self.ll.get_position(1), 'c')
+        self.assertEqual(self.ll.get_position(2), 'b')
+        self.assertEqual(self.ll.get_position(3), 'a')
+        self.ll.insert_last('d')
+        self.assertEqual(self.ll.get_position(1), 'c')
+        self.assertEqual(self.ll.get_position(2), 'b')
+        self.assertEqual(self.ll.get_position(3), 'a')
+        self.assertEqual(self.ll.get_position(4), 'd')
+        self.assertEqual(self.ll.get_position(5), None)
+
+    def test_get_position_with_invalid_position(self):
+        with self.assertRaises(ValueError):
+            self.ll.get_position(0)
+        with self.assertRaises(ValueError):
+            self.ll.get_position(-5)
+        with self.assertRaises(ValueError):
+            self.ll.get_position('string')
+        with self.assertRaises(ValueError):
+            self.ll.get_position(2.5)
 
 
 if __name__ == '__main__':

@@ -101,6 +101,7 @@ class SinglyLinkedList:
 
         :return: The data of the last node
         """
+        # If the list is empty, return None
         if self.head is None:
             return None
         else:
@@ -110,7 +111,29 @@ class SinglyLinkedList:
             return current.data
 
     def get_position(self, position):  # O(n)
-        pass
+        """
+        Get the node at the given position of the list
+
+        :param position: The position (index) of the list to retrieve the data
+        :return: The data of the node at a given position
+        """
+        # Check for invalid position values
+        if not isinstance(position, int) or position < 1:
+            raise ValueError('The position needs to be an integer greater than 0')
+        # If the list is empty, return None
+        if self.head is None:
+            return None
+        elif position == 1:
+            return self.head.data
+        else:
+            index = 1
+            current = self.head
+            while index <= position and current is not None:
+                if index == position:
+                    return current.data
+                index += 1
+                current = current.next
+            return None
 
     def remove_first(self):
         pass
