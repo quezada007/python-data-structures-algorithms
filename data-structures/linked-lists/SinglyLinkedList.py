@@ -202,6 +202,12 @@ class SinglyLinkedList:
                 return current.data
 
     def remove_position(self, position):  # O(n)
+        """
+        Delete a node at a given position
+
+        :param position: The position (index) of the node that is going to get deleted
+        :return: The data of the deleted node
+        """
         # Check for invalid position values
         if not isinstance(position, int) or position < 1:
             raise ValueError('The position needs to be an integer greater than 0')
@@ -228,12 +234,22 @@ class SinglyLinkedList:
                 return current.data
 
     def size(self):  # O(1)
+        """
+        The size (length) of the list
+
+        :return: The length of the list
+        """
         return self.size
 
     def traverse_list(self):  # O(n)
+        """
+        Traverse the entire list
+
+        :return: The list in a comma delimited format
+        """
         node_list = ''
         current = self.head
         while current is not None:
             node_list += current.data + ', '
             current = current.next
-        print(node_list.strip(', '))
+        return node_list.strip(', ')
