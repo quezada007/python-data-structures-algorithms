@@ -135,7 +135,7 @@ class SinglyLinkedList:
                 current = current.next
             return None
 
-    def remove_first(self):
+    def remove_first(self):  # O(1)
         """
         Delete the first node of the list
 
@@ -151,19 +151,19 @@ class SinglyLinkedList:
         else:
             return None
 
-    def remove_last(self):
+    def remove_last(self):  # O(n)
         pass
 
-    def remove(self, data):
+    def remove(self, data):  # O(n)
         pass
 
-    def remove_position(self, position):
+    def remove_position(self, position):  # O(n)
         pass
 
-    def size(self):
+    def size(self):  # O(1)
         return self.size
 
-    def traverse_list(self):
+    def traverse_list(self):  # O(n)
         node_list = ''
         current = self.head
         while current is not None:
