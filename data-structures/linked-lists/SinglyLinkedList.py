@@ -146,6 +146,7 @@ class SinglyLinkedList:
         if current is not None:
             self.head = self.head.next
             current.next = None
+            self.size -= 1
             return current.data
         # If list is empty, return None
         else:
@@ -164,6 +165,7 @@ class SinglyLinkedList:
         elif self.head.next is None:
             current = self.head
             self.head = None
+            self.size -= 1
             return current.data
         # If the list has more than 1 Node, go to the end of the list
         else:
@@ -172,6 +174,7 @@ class SinglyLinkedList:
                 current = current.next
             deleted_node = current.next
             current.next = None
+            self.size -= 1
             return deleted_node.data
 
     def remove(self, data):  # O(n)
@@ -199,6 +202,7 @@ class SinglyLinkedList:
                 # If the data is in the head, then delete the head
                 else:
                     self.head = current.next
+                self.size -= 1
                 return current.data
 
     def remove_position(self, position):  # O(n)
@@ -231,9 +235,10 @@ class SinglyLinkedList:
                 # If the data is in the head, then delete the head
                 else:
                     self.head = current.next
+                self.size -= 1
                 return current.data
 
-    def size(self):  # O(1)
+    def get_size(self):  # O(1)
         """
         The size (length) of the list
 
