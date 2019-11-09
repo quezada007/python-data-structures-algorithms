@@ -255,6 +255,6 @@ class SinglyLinkedList:
         node_list = ''
         current = self.head
         while current is not None:
-            node_list += current.data + ', '
+            node_list += str(current.data) + ', '
             current = current.next
         return node_list.strip(', ')

@@ -256,6 +256,32 @@ class TestSinglyLinkedList(unittest.TestCase):
         self.ll.remove_position(1)
         self.assertEqual(self.ll.get_size(), 0)
 
+    def test_traverse_list(self):
+        self.assertEqual(self.ll.traverse_list(), '')
+        self.ll.insert_last('a')
+        self.assertEqual(self.ll.traverse_list(), 'a')
+        self.ll.insert_last('b')
+        self.assertEqual(self.ll.traverse_list(), 'a, b')
+        self.ll.insert_first('c')
+        self.assertEqual(self.ll.traverse_list(), 'c, a, b')
+        self.ll.insert_last('d')
+        self.assertEqual(self.ll.traverse_list(), 'c, a, b, d')
+        self.ll.remove_position(2)
+        self.assertEqual(self.ll.traverse_list(), 'c, b, d')
+        self.ll.remove_last()
+        self.assertEqual(self.ll.traverse_list(), 'c, b')
+        self.ll.remove_first()
+        self.assertEqual(self.ll.traverse_list(), 'b')
+        self.ll.remove_position(1)
+        self.assertEqual(self.ll.traverse_list(), '')
+        self.ll.insert_last('a')
+        self.ll.insert_last(1)
+        self.assertEqual(self.ll.traverse_list(), 'a, 1')
+        self.ll.remove(1)
+        self.assertEqual(self.ll.traverse_list(), 'a')
+        self.ll.remove('a')
+        self.assertEqual(self.ll.traverse_list(), '')
+
 
 if __name__ == '__main__':
     unittest.main()
