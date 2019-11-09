@@ -136,7 +136,20 @@ class SinglyLinkedList:
             return None
 
     def remove_first(self):
-        pass
+        """
+        Delete the first node of the list
+
+        :return: The data of the deleted node
+        """
+        current = self.head
+        # If head is not None, then remove it
+        if current is not None:
+            self.head = self.head.next
+            current.next = None
+            return current.data
+        # If list is empty, return None
+        else:
+            return None
 
     def remove_last(self):
         pass
