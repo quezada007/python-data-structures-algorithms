@@ -158,7 +158,7 @@ class TestSinglyLinkedList(unittest.TestCase):
         self.assertEqual(self.ll.remove('a'), None)
         self.ll.insert_first('a')
         self.assertEqual(self.ll.remove('a'), 'a')
-        self.assertEqual(self.ll.remove('b'), None)
+        self.assertEqual(self.ll.remove('a'), None)
         self.ll.insert_first('a')
         self.ll.insert_first('b')
         self.ll.insert_first('c')
@@ -169,6 +169,46 @@ class TestSinglyLinkedList(unittest.TestCase):
         self.assertEqual(self.ll.remove('b'), 'b')
         self.assertEqual(self.ll.remove('d'), 'd')
         self.assertEqual(self.ll.remove('h'), None)
+        self.ll.insert_first('a')
+        self.ll.insert_first('b')
+        self.ll.insert_first('c')
+        self.ll.insert_first('d')
+        self.assertEqual(self.ll.remove('d'), 'd')
+        self.assertEqual(self.ll.remove('c'), 'c')
+
+    def test_remove_position(self):
+        self.assertEqual(self.ll.remove(3), None)
+        self.ll.insert_first('a')
+        self.assertEqual(self.ll.remove_position(1), 'a')
+        self.assertEqual(self.ll.remove_position(1), None)
+        self.ll.insert_first('a')
+        self.ll.insert_first('b')
+        self.ll.insert_first('c')
+        self.ll.insert_first('d')
+        self.assertEqual(self.ll.remove_position(1), 'd')
+        self.assertEqual(self.ll.remove_position(1), 'c')
+        self.assertEqual(self.ll.remove_position(1), 'b')
+        self.assertEqual(self.ll.remove_position(1), 'a')
+        self.assertEqual(self.ll.remove_position(1), None)
+        self.ll.insert_first('a')
+        self.ll.insert_first('b')
+        self.ll.insert_first('c')
+        self.ll.insert_first('d')
+        self.assertEqual(self.ll.remove_position(4), 'a')
+        self.assertEqual(self.ll.remove_position(2), 'c')
+        self.assertEqual(self.ll.remove_position(2), 'b')
+        self.assertEqual(self.ll.remove_position(2), None)
+        self.assertEqual(self.ll.remove_position(1), 'd')
+
+    def test_remove_position_with_invalid_position(self):
+        with self.assertRaises(ValueError):
+            self.ll.remove_position(0)
+        with self.assertRaises(ValueError):
+            self.ll.remove_position(-5)
+        with self.assertRaises(ValueError):
+            self.ll.remove_position('string')
+        with self.assertRaises(ValueError):
+            self.ll.remove_position(2.5)
 
 
 if __name__ == '__main__':

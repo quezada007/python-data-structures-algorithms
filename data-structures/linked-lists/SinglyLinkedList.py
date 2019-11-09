@@ -198,11 +198,34 @@ class SinglyLinkedList:
                     current.next = None
                 # If the data is in the head, then delete the head
                 else:
-                    self.head = None
+                    self.head = current.next
                 return current.data
 
     def remove_position(self, position):  # O(n)
-        pass
+        # Check for invalid position values
+        if not isinstance(position, int) or position < 1:
+            raise ValueError('The position needs to be an integer greater than 0')
+        # If the list is empty, return None
+        if self.head is None:
+            return None
+        # The list is not empty
+        else:
+            index = 1
+            current = self.head
+            previous = None
+            while index < position and current.next is not None:
+                previous = current
+                current = current.next
+                index += 1
+            if index == position:
+                # Check to make sure that the data is not in the head
+                if previous is not None:
+                    previous.next = current.next
+                    current.next = None
+                # If the data is in the head, then delete the head
+                else:
+                    self.head = current.next
+                return current.data
 
     def size(self):  # O(1)
         return self.size
