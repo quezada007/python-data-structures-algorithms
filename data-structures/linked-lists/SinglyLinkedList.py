@@ -152,6 +152,11 @@ class SinglyLinkedList:
             return None
 
     def remove_last(self):  # O(n)
+        """
+        Delete the last node of the list
+
+        :return: The data of the deleted node
+        """
         # If the list is empty, then return None
         if self.head is None:
             return None
