@@ -175,7 +175,31 @@ class SinglyLinkedList:
             return deleted_node.data
 
     def remove(self, data):  # O(n)
-        pass
+        """
+        Delete the node that contains the given data
+
+        :param data: The data to search in the nodes
+        :return: The data of the deleted node
+        """
+        # If the list is empty, then return None
+        if self.head is None:
+            return None
+        # The list is not empty
+        else:
+            current = self.head
+            previous = None
+            while current.data != data and current.next is not None:
+                previous = current
+                current = current.next
+            if current.data == data:
+                # Check to make sure that the data is not in the head
+                if previous is not None:
+                    previous.next = current.next
+                    current.next = None
+                # If the data is in the head, then delete the head
+                else:
+                    self.head = None
+                return current.data
 
     def remove_position(self, position):  # O(n)
         pass
