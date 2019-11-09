@@ -139,6 +139,21 @@ class TestSinglyLinkedList(unittest.TestCase):
         self.assertEqual(self.ll.remove_first(), 'a')
         self.assertEqual(self.ll.remove_first(), None)
 
+    def test_remove_last(self):
+        self.assertEqual(self.ll.remove_last(), None)
+        self.ll.insert_first('a')
+        self.assertEqual(self.ll.remove_last(), 'a')
+        self.assertEqual(self.ll.remove_last(), None)
+        self.ll.insert_first('a')
+        self.ll.insert_first('b')
+        self.ll.insert_first('c')
+        self.ll.insert_first('d')
+        self.assertEqual(self.ll.remove_last(), 'a')
+        self.assertEqual(self.ll.remove_last(), 'b')
+        self.assertEqual(self.ll.remove_last(), 'c')
+        self.assertEqual(self.ll.remove_last(), 'd')
+        self.assertEqual(self.ll.remove_last(), None)
+
 
 if __name__ == '__main__':
     unittest.main()

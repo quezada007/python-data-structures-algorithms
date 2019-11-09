@@ -152,7 +152,22 @@ class SinglyLinkedList:
             return None
 
     def remove_last(self):  # O(n)
-        pass
+        # If the list is empty, then return None
+        if self.head is None:
+            return None
+        # If there is only 1 Node in the list, then delete the head
+        elif self.head.next is None:
+            current = self.head
+            self.head = None
+            return current.data
+        # If the list has more than 1 Node, go to the end of the list
+        else:
+            current = self.head
+            while current.next.next is not None:
+                current = current.next
+            deleted_node = current.next
+            current.next = None
+            return deleted_node.data
 
     def remove(self, data):  # O(n)
         pass
