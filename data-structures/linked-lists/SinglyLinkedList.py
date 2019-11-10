@@ -30,7 +30,6 @@ class SinglyLinkedList:
         Insert a node at the beginning of the list and increment the list size
 
         :param data: The node data
-        :return:
         """
         node = Node(data)
         node.next = self.head
@@ -42,7 +41,6 @@ class SinglyLinkedList:
         Insert a node a the end of the list and increment the list size
 
         :param data: The node data
-        :return:
         """
         # Check to see if the list is empty
         if self.head is None:
@@ -62,7 +60,6 @@ class SinglyLinkedList:
 
         :param data: The node data
         :param position: The position (index) of the list to insert the new node
-        :return:
         """
         # Check for invalid position values
         if not isinstance(position, int) or position < 1:
@@ -258,3 +255,16 @@ class SinglyLinkedList:
             node_list += str(current.data) + ', '
             current = current.next
         return node_list.strip(', ')
+
+    def reverse_list(self):
+        """
+        Reverse the Singly Linked List
+        """
+        previous = None
+        current = self.head
+        while current is not None:
+            next = current.next
+            current.next = previous
+            previous = current
+            current = next
+        self.head = previous
