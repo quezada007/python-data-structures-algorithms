@@ -79,7 +79,7 @@ class SinglyLinkedList:
                     self.size += 1
                 index += 1
                 current = current.next
-            # Insert at the tail of the list
+            # Insert at the end of the list
             if index + 1 == position:
                 current.next = node
                 self.size += 1
@@ -256,7 +256,7 @@ class SinglyLinkedList:
             current = current.next
         return node_list.strip(', ')
 
-    def reverse_list(self):
+    def reverse_list(self):  # O(n)
         """
         Reverse the Singly Linked List
         """
