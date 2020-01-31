@@ -24,7 +24,7 @@ class TestSinglyLinkedList(unittest.TestCase):
         self.ll.insert_last('a')
         self.assertEqual(self.ll.head.data, 'a')
         self.ll.insert_last('b')
-        self.assertEqual(self.ll.head.data,'a')
+        self.assertEqual(self.ll.head.data, 'a')
         self.assertEqual(self.ll.head.next.data, 'b')
         self.ll.insert_last('c')
         self.assertEqual(self.ll.head.data, 'a')
